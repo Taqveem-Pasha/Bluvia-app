@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>BLUVIA Premium Water Business Manager</title>
+    <meta name="description" content="Full-stack offline-first water distribution business manager with inventory, customer ledgers, deliveries, finance, and Google Drive backups." />
+    <meta property="og:title" content="BLUVIA Premium Water Business Manager" />
+    <meta property="og:description" content="Full-stack offline-first water distribution business manager with inventory, customer ledgers, deliveries, finance, and Google Drive backups." />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="theme-color" content="#0369a1" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="BLUVIA" />
+    <link rel="icon" type="image/svg+xml" href="/icon.svg" />
+    <link rel="apple-touch-icon" href="/icon.svg" />
+    <script>
+      // AI Studio environment constraint: "HMR: Disabled. Ignore WebSocket errors."
+      (function() {
+        const origError = console.error;
+        console.error = function(...args) {
+          const msg = args.map(a => (a && (a.message || a.stack)) || String(a)).join(' ');
+          if (msg.includes('WebSocket closed without opened') || msg.includes('vite-hmr')) {
+            return;
+          }
+          origError.apply(console, args);
+        };
+        window.addEventListener('error', function(e) {
+          if (e.message && (e.message.includes('WebSocket') || e.message.includes('vite-hmr'))) {
+            e.stopImmediatePropagation();
+            e.preventDefault();
+          }
+        });
+        window.addEventListener('unhandledrejection', function(e) {
+          const reasonStr = (e.reason && (e.reason.message || String(e.reason))) || '';
+          if (reasonStr.includes('WebSocket') || reasonStr.includes('vite-hmr')) {
+            e.stopImmediatePropagation();
+            e.preventDefault();
+          }
+        });
+      })();
+    </script>
+  </head>
+  <body class="bg-slate-900 text-slate-100 antialiased selection:bg-cyan-500 selection:text-white">
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
+

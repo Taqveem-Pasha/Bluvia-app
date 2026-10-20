@@ -1,0 +1,6 @@
+{
+  "name": "BLUVIA Premium Water Business Manager",
+  "description": "Full-stack offline-first water distribution business manager with inventory, customer ledgers, deliveries, finance, and Google Drive backups.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
